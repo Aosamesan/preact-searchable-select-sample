@@ -1,0 +1,23 @@
+.custom-searchable-select {
+  --spacing: 4px;
+}
+
+.custom-searchable-select datalist {
+  display: none;
+  max-height: 20rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 0 0 var(--spacing) var(--spacing);
+  isolation: isolate;
+  z-index: -1;
+}
+
+.custom-searchable-select datalist option {
+  margin-bottom: calc(var(--spacing) / 2);
+  cursor: pointer;
+}
+
+.custom-searchable-select datalist option:hover,
+.custom-searchable-select datalist option.active {
+  background-color: lightblue;
+}

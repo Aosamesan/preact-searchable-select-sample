@@ -1,0 +1,48 @@
+{
+  "lock": false,
+  "tasks": {
+    "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
+    "cli": "echo \"import '\\$fresh/src/dev/cli.ts'\" | deno run --unstable -A -",
+    "manifest": "deno task cli manifest $(pwd)",
+    "start": "deno run -A --watch=static/,routes/ dev.ts",
+    "build": "deno run -A dev.ts build",
+    "preview": "deno run -A main.ts",
+    "update": "deno run -A -r https://fresh.deno.dev/update .",
+    "esm:add": "deno run -A https://esm.sh/v135 add",
+    "esm:update": "deno run -A https://esm.sh/v135 update",
+    "esm:remove": "deno run -A https://esm.sh/v135 remove"
+  },
+  "lint": {
+    "rules": {
+      "tags": [
+        "fresh",
+        "recommended"
+      ]
+    }
+  },
+  "exclude": [
+    "**/_fresh/*"
+  ],
+  "imports": {
+    "$std/": "https://deno.land/std@0.211.0/",
+    "$fresh/": "https://deno.land/x/fresh@1.6.3/",
+    "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.0",
+    "@preact/signals": "https://esm.sh/*@preact/signals@1.2.1",
+    "preact": "https://esm.sh/preact@10.19.3",
+    "preact/": "https://esm.sh/preact@10.19.3/",
+    "clsx": "https://esm.sh/v135/clsx@2.1.0",
+    "clsx/": "https://esm.sh/v135/clsx@2.1.0/"
+  },
+  "scopes": {
+    "https://esm.sh/v135/": {
+      "@babel/runtime": "https://esm.sh/v135/@babel/runtime@7.23.9",
+      "dom-helpers": "https://esm.sh/v135/dom-helpers@5.2.1",
+      "loose-envify": "https://esm.sh/v135/loose-envify@1.4.0",
+      "prop-types": "https://esm.sh/v135/prop-types@15.8.1"
+    }
+  },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact"
+  }
+}
